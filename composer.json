@@ -1,0 +1,40 @@
+{
+    "name": "widop/twitter-streaming",
+    "description": "Twitter Streaming API for PHP 5.3+",
+    "keywords": [ "twitter", "streaming", "api" ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Widop",
+            "email": "contact@widop.com"
+        },
+        {
+            "name": "Eric GELOEN",
+            "email": "geloen.eric@gmail.com"
+        },
+        {
+            "name": "Geoffrey BRIER",
+            "email": "geoffrey.brier@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "widop/http-adapter": "dev-f-streaming as 1.1.x-dev",
+        "widop/twitter-oauth": "1.0.*@dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "autoload": {
+        "psr-0": { "Widop\\Twitter": "src/" }
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
