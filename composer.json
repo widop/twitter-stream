@@ -21,7 +21,8 @@
     "require": {
         "php": ">=5.3.3",
         "widop/http-adapter": "dev-f-streaming as 1.1.x-dev",
-        "widop/twitter-oauth": "1.0.*@dev"
+        "widop/twitter-oauth": "dev-f-bearer-token",
+        "symfony/event-dispatcher": "2.*"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*"

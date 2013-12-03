@@ -23,20 +23,14 @@ use Widop\Twitter\Options\OptionInterface;
  */
 abstract class AbstractStreamingRequest
 {
-    /** @var callback */
-    private $persistentCallback;
-
     /** @var \Widop\Twitter\Options\OptionBag */
     private $optionBag;
 
     /**
      * Creates an abstract streaming request.
-     *
-     * @param callable $persistentCallback The persistent callback.
      */
-    public function __construct($persistentCallback)
+    public function __construct()
     {
-        $this->persistentCallback = $persistentCallback;
         $this->optionBag = new OptionBag();
 
         $this->configureOptionBag($this->optionBag);

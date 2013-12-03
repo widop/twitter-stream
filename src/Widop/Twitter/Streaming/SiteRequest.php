@@ -41,12 +41,11 @@ class SiteRequest extends AbstractStreamingRequest
     /**
      * Creates a site request.
      *
-     * @param callable $persistentCallback The persistent callback.
-     * @param string   $follow             The comma-separated list of user IDs to follow on the stream.
+     * @param string $follow The comma-separated list of user IDs to follow on the stream.
      */
-    public function __construct($persistentCallback, $follow)
+    public function __construct($follow)
     {
-        parent::__construct($persistentCallback);
+        parent::__construct();
 
         $this->setFollow($follow);
     }
