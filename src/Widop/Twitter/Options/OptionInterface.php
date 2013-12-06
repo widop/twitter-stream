@@ -19,9 +19,6 @@ namespace Widop\Twitter\Options;
 interface OptionInterface
 {
     /** @const string */
-    const TYPE_FILE = 'file';
-
-    /** @const string */
     const TYPE_GET = 'get';
 
     /** @const string */

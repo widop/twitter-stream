@@ -19,9 +19,8 @@ use Widop\Twitter\Options\OptionInterface;
  * Abstract streaming request.
  *
  * @author GeLo <geloen.eric@gmail.com>
- *
  */
-abstract class AbstractStreamingRequest
+abstract class AbstractRequest
 {
     /** @var \Widop\Twitter\Options\OptionBag */
     private $optionBag;
@@ -90,10 +89,6 @@ abstract class AbstractStreamingRequest
 
                 case OptionInterface::TYPE_POST:
                     $request->setPostParameter($option->getName(), $option->getValue());
-                    break;
-
-                case OptionInterface::TYPE_FILE:
-                    $request->setFileParameter($option->getName().'[]', $option->getValue());
                     break;
             }
         }

@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Widop\Twitter\Streaming\Event;
+namespace Widop\Twitter\Streaming\Resolver;
 
 /**
- * Event resolver.
+ * Event resolver interface.
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class EventResolver
+interface EventResolverInterface
 {
     /**
      * Resolves the twitter events.
@@ -25,10 +25,5 @@ class EventResolver
      *
      * @return array The events matched.
      */
-    public function resolve(array $response)
-    {
-        $events = array();
-
-        return $events;
-    }
+    public function resolve(array &$response);
 }

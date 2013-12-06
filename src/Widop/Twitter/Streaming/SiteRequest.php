@@ -11,7 +11,7 @@
 
 namespace Widop\Twitter\Streaming;
 
-use Widop\Twitter\AbstractStreamingRequest;
+use Widop\Twitter\AbstractRequest;
 use Widop\Twitter\Options\OptionBag;
 use Widop\Twitter\Options\OptionInterface;
 
@@ -36,7 +36,7 @@ use Widop\Twitter\Options\OptionInterface;
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
-class SiteRequest extends AbstractStreamingRequest
+class SiteRequest extends AbstractRequest
 {
     /**
      * Creates a site request.

@@ -15,7 +15,7 @@ use Symfony\Component\EventDispatcher\EventDispatcher;
 use Widop\Twitter\OAuth\OAuth;
 use Widop\Twitter\OAuth\OAuthRequest;
 use Widop\Twitter\OAuth\Token\TokenInterface;
-use Widop\Twitter\Streaming\Event\EventResolver;
+use Widop\Twitter\Streaming\Resolver\EventResolver;
 use Widop\Twitter\Streaming\Event\TwitterEvent;
 
 /**
@@ -37,7 +37,7 @@ class Twitter
     /*** @var \Symfony\Component\EventDispatcher\EventDispatcher */
     private $eventDispatcher;
 
-    /*** @var \Widop\Twitter\Streaming\Event\EventResolver */
+    /*** @var \Widop\Twitter\Streaming\Event\Resolver\EventResolver */
     private $eventResolver;
 
     /**
@@ -166,9 +166,9 @@ class Twitter
     /**
      * Streams a Twitter request.
      *
-     * @param \Widop\Twitter\AbstractStreamingRequest $request The Twitter request.
+     * @param \Widop\Twitter\AbstractRequest $request The Twitter request.
      */
-    public function stream(AbstractStreamingRequest $request)
+    public function stream(AbstractRequest $request)
     {
         $request = $request->createOAuthRequest();
         $request->setBaseUrl($this->getUrl());
@@ -216,6 +216,11 @@ class Twitter
         }
     }
 
+    /**
+     * Creates a persistent callback which job is to dispatch events.
+     *
+     * @return callable The persistent callback.
+     */
     private function createPersistentCallback()
     {
         $eventDispatcher = $this->eventDispatcher;
@@ -228,9 +233,7 @@ class Twitter
                 throw new \RuntimeException(sprintf('Invalid JSON received (%s).', $data));
             }
 
-            $event = new TwitterEvent($json);
-
-            foreach($eventResolver->resolve($json) as $eventName) {
+            foreach($eventResolver->resolve($json) as $eventName => $event) {
                 $eventDispatcher->dispatch($eventName, $event);
             }
         };

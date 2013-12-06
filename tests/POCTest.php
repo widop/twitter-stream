@@ -18,6 +18,7 @@ class POCTest extends \PHPUnit_Framework_TestCase
 {
     public function test()
     {
+        return ;
         $oauth = new OAuth(
             new CurlHttpAdapter(),
             new OAuthConsumer('g35F3Cy5oE0mUIV5csGq6Q', 'Epue5l3jXxWtGvpmqHN001tynXUihGdNBNsZ085Guk'),

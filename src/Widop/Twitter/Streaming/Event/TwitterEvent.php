@@ -21,16 +21,24 @@ use Symfony\Component\EventDispatcher\Event;
 class TwitterEvent extends Event
 {
     /** @var array */
-    private $data;
+    protected $data;
+
+    /** @var string */
+    protected $context;
+
+    /** @var string */
+    protected $userId;
 
     /**
      * Creates a twitter event.
      *
      * @param array $data The data.
      */
-    public function __construct(array $data)
+    public function __construct(array $data, $context, $userId = null)
     {
         $this->data = $data;
+        $this->context = $context;
+        $this->userId = $userId;
     }
 
     /**
@@ -41,5 +49,25 @@ class TwitterEvent extends Event
     public function getData()
     {
         return $this->data;
+    }
+
+    /**
+     * Gets the user id.
+     *
+     * @return string The user id.
+     */
+    public function getUserId()
+    {
+        return $this->userId;
+    }
+
+    /**
+     * Gets the request context.
+     *
+     * @return string The request context.
+     */
+    public function getContext()
+    {
+        return $this->context;
     }
 }

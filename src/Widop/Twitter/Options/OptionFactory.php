@@ -30,13 +30,17 @@ class OptionFactory
     {
         $this->mapping = array(
             'count'                => 'Widop\Twitter\Options\CountOption',
+            'cursor'               => 'Widop\Twitter\Options\CursorOption',
             'delimited'            => 'Widop\Twitter\Options\DelimitedOption',
             'follow'               => 'Widop\Twitter\Options\FollowOption',
             'locations'            => 'Widop\Twitter\Options\LocationsOption',
             'replies'              => 'Widop\Twitter\Options\RepliesOption',
             'stall_warnings'       => 'Widop\Twitter\Options\StallWarningsOption',
+            'stream_id'            => 'Widop\Twitter\Options\StreamIdOption',
             'stringify_friend_ids' => 'Widop\Twitter\Options\StringifyFriendIdsOption',
+            'stringify_ids'        => 'Widop\Twitter\Options\StringifyIdsOption',
             'track'                => 'Widop\Twitter\Options\TrackOption',
+            'user_id'              => 'Widop\Twitter\Options\UserIdOption',
             'with'                 => 'Widop\Twitter\Options\WithOption',
         );
     }
